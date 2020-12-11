@@ -8,7 +8,7 @@ module.exports = {
 };
 
 function findById(id) {
-  return db('projects').where({ id }).first();
+  return db('tasks').where({ id }).first();
 }
 function getAllTasks() {
   return db('tasks');

@@ -14,4 +14,15 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+  const newTask = req.body;
+  Model.addResource(newTask)
+    .then(() => {
+      res.status(201).json(newTask);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ errorMessage: 'Failed to add new task' });
+    });
+});
 module.exports = router;

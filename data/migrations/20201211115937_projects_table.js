@@ -9,7 +9,7 @@ exports.up = function (knex) {
     .createTable('tasks', (table) => {
       table.increments('task_id');
       table.string('description', 225).notNullable();
-      table.string('notes', 225).notNullable();
+      table.string('notes', 225);
       table.boolean('completed').defaultTo(0);
       table
         .integer('project_id')
