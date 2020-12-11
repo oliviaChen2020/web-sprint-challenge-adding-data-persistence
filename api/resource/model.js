@@ -4,7 +4,7 @@ const db = require('../../data/dbConfig');
 module.exports = {
   getAllResources,
   findById,
-  addTask,
+  addResource,
 };
 
 function getAllResources() {
@@ -13,6 +13,6 @@ function getAllResources() {
 function findById(id) {
   return db('resources').where({ id }).first();
 }
-function addTask(resource) {
+function addResource(resource) {
   return db('resources').insert(resource);
 }

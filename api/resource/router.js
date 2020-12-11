@@ -13,4 +13,16 @@ router.get('/', (req, res) => {
       res.status(500).json({ error: 'Failed to get resources' });
     });
 });
+
+router.post('/', (req, res) => {
+  const newResource = req.body;
+  Model.addResource(newResource)
+    .then(() => {
+      res.status(201).json(newResource);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ errorMessage: 'Failed to add new Resource' });
+    });
+});
 module.exports = router;
