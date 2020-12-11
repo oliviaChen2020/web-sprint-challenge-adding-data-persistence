@@ -18,7 +18,14 @@ function findById(id) {
   return db('projects').where({ id }).first();
 }
 function getAllTasks() {
-  return;
+  return db('projects')
+    .select(
+      'projects.project_name',
+      'tasks.task_description',
+      'tasks.task_completed'
+    )
+    .join('tasks', 'tasks.project_id', 'projects.project_id')
+    .where('projects.project_id', 'projectID');
 }
 function getAllResources() {}
 function addProject() {}
