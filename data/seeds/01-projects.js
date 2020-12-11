@@ -4,17 +4,17 @@ exports.seed = function (knex) {
     {
       name: 'Exterior Renovation',
       description: 'make it look nicer',
-      completed: 0,
+      completed: false,
     },
     {
       name: 'Interior Renovation',
       description: 'live in a btter house',
-      completed: 0,
+      completed: false,
     },
     {
       name: 'Basement Revonation',
       description: 'redesign the basement',
-      completed: 0,
+      completed: false,
     },
   ]);
 };

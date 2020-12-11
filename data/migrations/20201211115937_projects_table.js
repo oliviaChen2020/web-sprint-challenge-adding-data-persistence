@@ -3,8 +3,8 @@ exports.up = function (knex) {
     .createTable('projects', (table) => {
       table.increments('project_id');
       table.string('name', 128).notNullable();
-      table.string('description', 225).notNullable();
-      table.boolean('completed').defaultTo(0);
+      table.string('description', 225);
+      table.boolean('completed').defaultTo(false);
     })
     .createTable('tasks', (table) => {
       table.increments('task_id');
@@ -22,12 +22,11 @@ exports.up = function (knex) {
     })
     .createTable('resources', (table) => {
       table.increments('resource_id');
-      table.string('name', 128).notNullable();
-      table.string('description', 225).notNullable();
+      table.string('name', 128).notNullable().unique();
+      table.string('description', 225);
       table
         .integer('project_id')
         .unsigned()
-        .notNullable()
         .references('project_id')
         .inTable('projects')
         .onDelete('RESTRICT')
